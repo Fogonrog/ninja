@@ -19,7 +19,7 @@ public class GameWorld implements IDrawable {
     public GameWorld() {
         for (int i = 0; i < WORLD_SIZE; i++) {
             for (int j = 0; j < WORLD_SIZE; j++) {
-                // TODO: задание 2 - в следующих строках ошибка
+                //TODO: задание 2 - в следующих строках ошибка
                 // Чанки должны нумероваться слева-направо, снизу-вверх (сейчас это не так)
                 int x = i - WORLD_SIZE / 2;
                 int y = j - WORLD_SIZE / 2;
