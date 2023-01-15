@@ -20,6 +20,7 @@ public class Camera {
     }
 
     public float x(float x) {
+        // TODO: задание 2 - в этой строке ошибка
         return screenW / 2 + zoom * (centerX + x);
     }
 
