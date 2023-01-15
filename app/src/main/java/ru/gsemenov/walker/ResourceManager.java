@@ -40,6 +40,15 @@ public class ResourceManager {
             FONT = p;
         }
         {
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+            p.setTypeface(context.getResources().getFont(R.font.pixeloid_sans));
+            p.setTextSize(70.0f);
+            p.setStyle(Paint.Style.STROKE);
+            p.setStrokeWidth(3.0f);
+            p.setColor(Color.parseColor("#00ff00"));
+            GREEN = p;
+        }
+        {
             TREES = new SpriteTexture[3];
             for (int i = 0; i < TREES.length; i++) {
                 Bitmap bmp;
