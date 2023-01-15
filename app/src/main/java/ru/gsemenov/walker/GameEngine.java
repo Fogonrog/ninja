@@ -83,6 +83,7 @@ public class GameEngine {
         walker.draw(canvas, camera);
         canvas.drawText("vx: " + walker.getVx(), 10, 100, fontPaint);
         canvas.drawText("vy: " + walker.getVy(), 10, 300, fontPaint);
+        canvas.drawText("x = " + walker.getX() + ", y = " + walker.getY(), 20, 800, ResourceManager.GREEN);
     }
 
     /**
