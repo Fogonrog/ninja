@@ -19,6 +19,8 @@ public class GameWorld implements IDrawable {
     public GameWorld() {
         for (int i = 0; i < WORLD_SIZE; i++) {
             for (int j = 0; j < WORLD_SIZE; j++) {
+                // TODO: задание 2 - в следующих строках ошибка
+                // Чанки должны нумероваться слева-направо, снизу-вверх (сейчас это не так)
                 int x = i - WORLD_SIZE / 2;
                 int y = j - WORLD_SIZE / 2;
                 world[i][j] = new Chunk((x * CHUNK_SIZE) - CHUNK_SIZE / 2, (y * CHUNK_SIZE) - CHUNK_SIZE / 2, CHUNK_SIZE);
@@ -36,6 +38,7 @@ public class GameWorld implements IDrawable {
         for (int i = 0; i < WORLD_SIZE; i++) {
             for (int j = 0; j < WORLD_SIZE; j++) {
                 world[i][j].draw(canvas, camera);
+                canvas.drawText("i = " + i + ", j = " + j, camera.x(world[i][j].leftBottomX) + 30, camera.y(world[i][j].leftBottomY) - 300, world[i][j].paint);
 
 //                if (world[i][j].contains(camera.centerX, camera.centerY)) {
 //                    for (int a = Math.max(0, i - 1); a <= Math.min(WORLD_SIZE - 1, i + 1); a++) {
