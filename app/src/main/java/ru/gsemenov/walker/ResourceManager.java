@@ -19,6 +19,7 @@ public class ResourceManager {
 
     public static SpriteTexture WALKER = null;
     public static Paint FONT = null;
+    public static Paint GREEN = null;
     public static SpriteTexture[] TREES = null;
 
     public static SpriteTexture RANDOM_TREE() {
