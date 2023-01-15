@@ -44,8 +44,12 @@ public class Chunk implements IDrawable {
 
     @Override
     public void draw(Canvas canvas, Camera camera) {
+        if (contains(camera.centerX, camera.centerY)) {
+            canvas.drawRect(camera.x(leftBottomX), camera.y(leftBottomY + size), camera.x(leftBottomX + size), camera.y(leftBottomY), ResourceManager.GREEN);
+        } else {
+            canvas.drawRect(camera.x(leftBottomX), camera.y(leftBottomY + size), camera.x(leftBottomX + size), camera.y(leftBottomY), paint);
+        }
         canvas.drawText("(" + leftBottomX + ", " + leftBottomY + ")", camera.x(leftBottomX), camera.y(leftBottomY), paint);
-        canvas.drawRect(camera.x(leftBottomX), camera.y(leftBottomY + size), camera.x(leftBottomX + size), camera.y(leftBottomY), paint);
         for (Entity e : entities) {
             e.draw(canvas, camera);
         }
