@@ -26,24 +26,46 @@ public class WalkingEntity extends Entity {
     @Override
     public void draw(Canvas canvas, Camera camera) {
         if (!alive) { return; }
-        int direction = 0;
+        int direction = 6;
         boolean walking = true;
 
         if (Math.abs(vx) < SPEED_LIMIT_X && Math.abs(vy) < SPEED_LIMIT_Y) {
             walking = false;
-        } else if (Math.abs(vx) < SPEED_LIMIT_X) {
-            direction = vy > 0 ? 3 : 0;
-        } else if (Math.abs(vy) < SPEED_LIMIT_Y) {
-            direction = vx > 0 ? 2 : 1;
+        //} else if (Math.abs(vx) < SPEED_LIMIT_X) {
+            //direction = vy > 0 ? 3 : 0;
+        //} else if (Math.abs(vy) < SPEED_LIMIT_Y) {
+            //direction = vx > 0 ? 2 : 1;
         } else {
             double angle = Math.atan2(vy, vx);
-            if (angle < 0) { angle = 2 * Math.PI + angle; }
-            if (angle <= Math.PI / 4 || angle >= 7.0 * Math.PI / 4) {
-                direction = 2;
-            } else if (angle > Math.PI / 4 && angle <= 3.0 * Math.PI / 4) {
+            if (angle < 0) {
+                angle = 2 * Math.PI + angle;
+                System.out.println(angle);
+            }
+
+            if (angle < 0.39269908169 || angle> 5.89048622549) {
+                direction = 4;
+                System.out.println("Иду по направлению вправо");
+            } else if (angle> 0.39269908169 && angle<1.17809724507){
                 direction = 3;
-            } else if (angle > 3.0 * Math.PI / 4 && angle <= 5.0 * Math.PI / 4) {
+                System.out.println("Иду по направлению вправо-вверх");
+            } else if (angle>1.17809724507 && angle<1.96349540845){
+                direction = 2;
+                System.out.println("Иду по направлению вверх");
+            } else if (angle > 1.96349540845 &&  angle < 2.74889357183) {
                 direction = 1;
+                System.out.println("Иду по направлению влево-вверх");
+            } else if (angle > 2.74889357183 && angle < 3.53429173521) {
+                direction = 0;
+                System.out.println("Иду по направлению влево");
+            }else if (angle >3.53429173521 && angle<4.31968989859){
+                direction = 7;
+                System.out.println("Иду по направлению влево-вниз");
+            }else if (angle >4.31968989859 && angle<5.10508806197){
+                direction = 6;
+                System.out.println("Иду по направлению вниз");
+            }else if (angle >5.10508806197 && angle<5.89048622535) {
+                direction = 5;
+                System.out.println("Иду по направлению вправо-вниз");
             }
         }
 

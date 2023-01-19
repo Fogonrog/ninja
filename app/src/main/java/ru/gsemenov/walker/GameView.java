@@ -39,7 +39,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback  {
     });
 
     // Координаты начального касания пальцами для высчитывания смещения и скорости
-    float dX, dY;
+    float dx, dy;
 
     /**
      * Управление драконом с помощью свайпов пальцами
@@ -51,14 +51,32 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback  {
         }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                dX = event.getRawX();
-                dY = event.getRawY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                float speedX = (event.getRawX() - dX) / getWidth();
-                float speedY = (event.getRawY() - dY) / getHeight();
-                game.walker.setSpeed((int) (40.0 * speedX), (int) (40.0 * -speedY));
-                break;
+                dx = event.getRawX();
+                dy = event.getRawY();
+                System.out.println(dx);
+                System.out.println(dy);
+                if (dx>((getWidth()/11)*5) && dx<((getWidth()/11)*6) && dy>(getHeight()/2)){
+                    game.walker.setSpeed(0,-8);
+                    break;
+                }else if (dx>((getWidth()/11)*5) && dx<((getWidth()/11)*6) && dy<(getHeight()/2)){
+                    game.walker.setSpeed(0,8);
+                    break;
+                }else if (dy>((getHeight()/11)*5) && dy<((getHeight()/11)*6) && dx>(getWidth()/2)){
+                    game.walker.setSpeed(8,0);
+                    break;
+                }else if (dy>((getHeight()/11)*4) && dy<((getHeight()/11)*7) && dx<(getWidth()/2)) {
+                    game.walker.setSpeed(-8, 0);
+                    break;
+                }
+
+                //break;
+            //case MotionEvent.ACTION_MOVE:
+                //float speedX = (event.getRawX() - dX) / getWidth();
+                //float speedY = (event.getRawY() - dY) / getHeight();
+                //int lol_x = (int) (40 * speedX);
+                //int lol_y = (int) (40 * -speedY);
+                //game.walker.setSpeed(lol_x, lol_y);
+                //break;
             default:
                 return false;
         }

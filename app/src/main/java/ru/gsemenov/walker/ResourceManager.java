@@ -30,7 +30,7 @@ public class ResourceManager {
     public static void init(Context context) {
         {
             Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.walker);
-            WALKER = new SpriteTexture.Builder(bmp).addLine(12).addLine(12).addLine(12).addLine(12).build();
+            WALKER = new SpriteTexture.Builder(bmp).addLine(8).addLine(8).addLine(8).addLine(8).addLine(8).addLine(8).addLine(8).addLine(8).build();
         }
         {
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);

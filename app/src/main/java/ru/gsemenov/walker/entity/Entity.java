@@ -99,10 +99,10 @@ public abstract class Entity implements IDrawable {
      */
     public void setSpeed(int vx, int vy) {
         double v = Math.sqrt(vx * vx + vy * vy);
-        if (v > max_v) {
+        //if (v > max_v) {
             this.vx = (float) (vx * (max_v / v));
             this.vy = (float) (vy * (max_v / v));
-        }
+        //}
         //this.vx = vx >= 0 ? Math.min(vx, max_vx) : Math.max(vx, -max_vx);
         //this.vy = vy >= 0 ? Math.min(vy, max_vy) : Math.max(vy, -max_vy);
     }
