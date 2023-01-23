@@ -53,8 +53,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback  {
             case MotionEvent.ACTION_DOWN:
                 dx = event.getRawX();
                 dy = event.getRawY();
-                System.out.println(dx);
-                System.out.println(dy);
+                System.out.println(((getWidth()/11)*10) + " < " + dx + " < " + getWidth());
+                System.out.println(((getHeight()/11)*10) + " < " + dy + " < " + getHeight());
                 if (dx>((getWidth()/11)*5) && dx<((getWidth()/11)*6) && dy>(getHeight()/2)){
                     game.walker.setSpeed(0,-8);
                     break;
@@ -66,6 +66,42 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback  {
                     break;
                 }else if (dy>((getHeight()/11)*4) && dy<((getHeight()/11)*7) && dx<(getWidth()/2)) {
                     game.walker.setSpeed(-8, 0);
+                    break;
+                }else if(dx>((getWidth()/11)*6) && dx<((getWidth()/11)*7) && (getHeight() - dy)>((getHeight()/11)*6) && (getHeight() - dy)<((getHeight()/11)*7) || (dx>((getWidth()/11)*8) && dx<((getWidth()/11)*9) && (getHeight() - dy)>((getHeight()/11)*8) && (getHeight() - dy)<((getHeight()/11)*9)) || (dx>((getWidth()/11)*9) && dx<((getWidth()/11)*10) && (getHeight() - dy)>((getHeight()/11)*9) && (getHeight() - dy)<((getHeight()/11)*10))){
+                    game.walker.setSpeed(8, 8);
+                    break;
+                }else if(dx>((getWidth()/11)*7) && dx<((getWidth()/11)*8) && (getHeight() - dy)>((getHeight()/11)*7) && (getHeight() - dy)<((getHeight()/11)*8)){
+                    game.walker.setSpeed(8, 8);
+                    break;
+                }else if(dx>((getWidth()/11)*10) && dx<getWidth() && (getHeight() - dy)>((getHeight()/11)*10) && (getHeight() - dy)<getHeight()){
+                    game.walker.setSpeed(8, 8);
+                    break;
+                }else if((dx>((getWidth()/11)*6) && dx<((getWidth()/11)*7) && (getHeight() - dy)>((getHeight()/11)*4) && (getHeight() - dy)<((getHeight()/11)*5)) || (dx>((getWidth()/11)*7) && dx<((getWidth()/11)*8) && (getHeight() - dy)>((getHeight()/11)*3) && (getHeight() - dy)<((getHeight()/11)*4)) || (dx>((getWidth()/11)*8) && dx<((getWidth()/11)*9) && (getHeight() - dy)>((getHeight()/11)*2) && (getHeight() - dy)<((getHeight()/11)*3)) || ((dx>((getWidth()/11)*9) && dx<((getWidth()/11)*10) && (getHeight() - dy)>(getHeight()/11) && (getHeight() - dy)<((getHeight()/11)*2))) || (dx>((getWidth()/11)*10) && dx<getWidth() && (getHeight() - dy)>0 && (getHeight() - dy)<(getHeight()/11))){
+                    game.walker.setSpeed(8, -8);
+                    break;
+                }else if(dx>((getWidth()/11)*6) && dx<((getWidth()/11)*7) && (getHeight() - dy)>0 && (getHeight() - dy)<((getHeight()/11)*2)){
+                    game.walker.setSpeed(2, -8);
+                    break;
+                }else if(dx>((getWidth()/11)*4) && dx<((getWidth()/11)*5) && (getHeight() - dy)>0 && (getHeight() - dy)<((getHeight()/11)*2)){
+                    game.walker.setSpeed(-2, -8);
+                    break;
+                }else if(dx>((getWidth()/11)*9) && dx<getWidth() && (getHeight() - dy)>((getHeight()/11)*4)&& (getHeight() - dy)<((getHeight()/11)*5)){
+                    game.walker.setSpeed(8, -2);
+                    break;
+                } else if (dx>((getWidth()/11)*9) && dx<getWidth() && (getHeight() - dy)>((getHeight()/11)*6)&& (getHeight() - dy)<((getHeight()/11)*7)) {
+                    game.walker.setSpeed(8, 2);
+                    break;
+                } else if(dx>((getWidth()/11)*4) && dx<((getWidth()/11)*5) && (getHeight() - dy)>((getHeight()/11)*9) && (getHeight() - dy)<getHeight()){
+                    game.walker.setSpeed(-2, 8);
+                    break;
+                }else if(dx>((getWidth()/11)*6) && dx<((getWidth()/11)*7) && (getHeight() - dy)>((getHeight()/11)*9) && (getHeight() - dy)<getHeight()){
+                    game.walker.setSpeed(2, 8);
+                    break;
+                }else if(dx>0 && dx<((getWidth()/11)*2) && (getHeight() - dy)>((getHeight()/11)*4) && (getHeight() - dy)<((getHeight()/11)*5)){
+                    game.walker.setSpeed(-8, -2);
+                    break;
+                }else if(dx>0 && dx<((getWidth()/11)*2) && (getHeight() - dy)>((getHeight()/11)*6) && (getHeight() - dy)<((getHeight()/11)*7)){
+                    game.walker.setSpeed(-8, 2);
                     break;
                 }
 
